@@ -2,6 +2,7 @@
 Console.WriteLine("--Ingrese los datos del paciente--");
 Console.Write("Nombre:");
 string nombre = Console.ReadLine();
+
 Console.Write("DPI:");
 long dpi;
 do
@@ -12,12 +13,31 @@ do
         Console.WriteLine("Caracteres no validos");
     }
 } while (!val);
+
 Console.Write("Telefono:");
 int telefono;
+do
+{
+    val = int.TryParse(Console.ReadLine(), out telefono);
+    if (!val)
+    {
+        Console.WriteLine("Caracteres no validos");
+    }
+} while (!val);
+
 Console.Write("Edad:");
 int edad;
+do
+{
+    val = int.TryParse(Console.ReadLine(), out edad);
+    if (!val)
+    {
+        Console.WriteLine("Caracteres no validos");
+    }
+} while (!val);
 
 Cliente c = new Cliente(nombre,dpi,telefono,edad);
+c.MostrarDatos();
 
 class Cliente
 {
